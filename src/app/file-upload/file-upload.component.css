@@ -1,0 +1,61 @@
+ .nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #22ab29;
+  }
+   
+ .anav {
+    display: block;
+    padding: 10px;
+    color : white ;
+    font-size:20px;
+    margin-left:1188px;
+  } 
+
+#div1 {
+  float: left;
+  /*border-style: dotted;*/ 
+}
+
+/*#div12
+{
+  border-style: dotted;
+  height:150px;
+  width:500px;
+  margin-left:10px;
+}*/
+
+#div1
+{
+  width: 1100px;
+  padding: 10px;
+}
+
+.ul, .dragul1 {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+  margin-right: 75px;
+}
+
+.li, .dragli1 {
+  border: 1px solid #ddd;
+  background-color: #d2d3d9;
+  padding: 6px;
+  font-size: 18px;
+}
+
+.close, .close1 {
+  cursor: pointer;
+}
+
+.close1
+{
+  margin-left:100px;
+}
+
+.close:hover, .close1:hover {background: #bbb; }
+
+

@@ -1,0 +1,96 @@
+.navbar {
+  overflow: hidden;
+  background-color: #22ab29;
+  height:50px;
+}
+
+.navbar p {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown{
+  margin-left:910px;
+}
+
+.dropdown .dropbtn {
+  border: none;
+  outline:none;
+  color: white;
+  background-color: inherit;
+}
+
+.dropbtn
+{
+  margin-top:0px;
+}
+
+.dropdown:hover  {
+  background-color: #09b87b;
+  min-width: 79px;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed ;
+  background-color: #f9f9f9;
+  min-width: 79px;
+  overflow:visible;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+#yes, #no
+{
+  float:left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#div1, #div2
+{
+  float:left;
+}
+
+#name, #delete
+{
+  display : inline-block;
+}
+
+#delete
+{
+  margin-left:10px;
+}
+
+.route1:hover
+{
+  background-color: #09b87b;
+}
+
+.btn1, .btn2, .btn3 {
+  border: none;
+  outline: none;
+  display:block;
+  padding: 6px 8px; 
+  background-color: #f1f1f1;
+  cursor: pointer;
+  width:79px;
+}
+
+.btn1:hover, .btn2:hover, .btn3:hover {
+  background-color: #c3cdde;
+}

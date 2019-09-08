@@ -1,0 +1,82 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<ul class = "nav">
+    <li class = "linav" ><a class = "anav" href="#logout" routerLink = "/login">Logout</a></li> 
+</ul>
+<br>
+<!----<p style = "margin-left:20px;">   {{folderName.name}}  </p>-->
+
+
+
+<hr>
+
+
+<div class="container" style = "margin-top:0px;width:1000px;margin-left:60px;"> 
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" /> 
+    <button type="button" style = "background-color:#5064f2" class="btn btn-secondary " (click)="uploading()"  
+      (click)="uploader.uploadAll()"  [disabled]="!uploader.getNotUploadedItems().length"  (click) = "getFol()" >     
+          Upload the file   
+    </button>    
+    
+</div>  
+
+<hr>
+
+<!---<div  style = "margin-top:30px;margin-left:75px;"  >
+    <h4 style = "font-size : 20px;font-family:arial;margin-top:10px;">Uploaded Files  {{folderName}} </h4>
+</div>
+
+<div id="div1" class = "dropzone" style = "margin-left:75px;margin-top:30px"   >
+    <p style = "margin-left:10px;color:#9e9c96" *ngIf = '!text'>You can drag and drop files </p>
+    <p *ngIf = 'text'></p>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<p id = "change" style = "color:#9e9c96;margin-left:75px;">No files uploaded</p> 
+
+<ul class = "dragul1" *ngFor = "let a of array">
+    <li class = "dragli1">{{a}}{{yes()}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span> </li>
+</ul>
+    
+<ul class = "ul" *ngFor="let item of attachmentList">   
+    <li class = "li">{{item.originalname}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span></li> 
+</ul> -->
+
+<div id="div1" class = "dropzone" style = "margin-left:57px;">
+    <h4 style = "font-size : 20px;font-family:arial;margin-left:10px;">Uploaded Files </h4>
+    
+    <!---<div id = "div12">-->
+        <p style = "margin-left:10px;color:#9e9c96" *ngIf = '!text'>
+            You can Drag and drop files 
+        </p>
+    <!---</div>-->
+
+        <p *ngIf = 'text'></p> 
+
+        <p id = "change" style = "color:#9e9c96;margin-left:10px;">
+            No files uploaded
+        </p> 
+
+        <ul class = "dragul1" *ngFor = "let a of array"> <!--array-->
+            <li class = "dragli1">
+                {{a}}{{yes()}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span> 
+                <button (click) = "patchFiles(a)">Clck</button>
+            </li>
+        </ul>
+
+        <ul class = "dragul1" *ngFor = "let a of allFiles"> <!--array-->
+            <li class = "dragli1">
+                {{a}}{{yes()}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span> 
+                <!--<button (click) = "patchFiles(a)">Clck</button>-->
+            </li>
+        </ul>
+
+        <!--<button (click) = "getSpecificData()">Gett</button>-->
+            
+        <ul class = "ul" *ngFor="let item of attachmentList">   
+            <li class = "li">{{item.originalname}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span></li> 
+        </ul>
+
+</div>

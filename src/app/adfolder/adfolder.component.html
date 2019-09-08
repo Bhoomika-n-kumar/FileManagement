@@ -1,0 +1,66 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="navbar">
+    <p  style = "margin-top:10px;font-size:16px;color:white;"> 
+      Welcome, {{uname}} ! <!--getUser-->
+    </p>
+    <div class="dropdown">
+      <button class="dropbtn" style = "font-size:16px;" >
+          View 
+          <i class="fa fa-caret-down"></i>
+      </button>
+
+      <div class="dropdown-content" >
+          <button class="btn1" (click)="listView()"><i class="fa fa-bars"></i> 
+            List
+          </button>
+
+          <button class="btn2" (click)="gridView()"><i class="fa fa-th-large"></i>   
+            Grid 
+          </button> 
+
+          <button class="btn3" (click)="originalView()">  
+            Default 
+          </button>
+      </div>
+    </div> 
+  <a class = "a" href="#logout" routerLink = "/login" style = "color:white;height:40px;font-size:16px;margin-top:11px;">Logout</a>
+</div>
+
+<br><br><br>
+
+<div *ngIf = "yes">
+<app-ad-file ></app-ad-file>
+</div>
+
+
+<!----<div id = "yes" ></div>-->
+<div id = "div1" *ngFor = "let t1 of allFolder">
+  <!--<div id = "div1" *ngFor = "let t1 of allFolder">--> 
+  <button id = "name" routerLink = '/filUpload' id = "arrayBtn" (click) = "setFolder(t1)" (click) = "setIdnumber(t1.id)" class = "route1" onmouseover="this.style.color='#3434eb';" onmouseout="this.style.color='black';" style = "outline:none; border:none; cursor: pointer; margin-top:20px; margin-left:20px; height :30px ;  width:90px; background-color:#d1dade;">
+      {{t1.name}} 
+    </button>  
+    <a id = "delete" (click) = "deleteEmployee(t1.id)" ><i class = "fa fa-trash" style = "float:right;"></i></a>
+    {{yes1()}}  
+  </div> 
+  <!----<div *ngFor = "let t of set1">{{t}}</div>-->
+<!----</div>-->
+  
+<div id = "div2" > 
+  <button class = "folder" id = "fold"  (click) = "display()" name = "button1" class = "btn" style = "outline:none;"> <i class="fa fa-folder"></i>  
+    Add folder 
+  </button> <br/><br/> 
+</div> 
+
+<!----<button routerLink = "/adFile">Clickk</button>-->
+
+<!--<div id = "route" routerLink = '/filUpload' ></div> -->  
+
+<p id = "folder" style = "color:#9e9c96;margin-left:20px;margin-top:80px;">No folders created</p>
+
+<!---<app-file-upload [received] = "this.folder" style = "display:none;"></app-file-upload>-->
+
+

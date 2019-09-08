@@ -1,0 +1,47 @@
+<body>
+    <div class = "fluid-container" class="login-box"> <!-- style = "text-align : center;"-->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjzMdkrrTd8aDVaHsxTOFTKQ8dbN0wdwCQyBtKyPAng3fbKtq_" class="images">
+        <h2>
+            Login here
+        </h2>
+        
+        <form #LoginForm = "ngForm">
+    
+        <!--{{loginModel|json}}-->
+    
+        <div class = "form-group">
+            <label>
+                Username
+            </label>
+
+            <input type = "text" #user = "ngModel" class = "form-control" placeholder ="Enter Username" [class.is-invalid] = "user.invalid && user.touched" name ="user" [(ngModel)] = "login.currentUser.username" required> <!--"loginModel.username"-->
+
+            <small class = "text-danger" [class.d-none] = "user.valid || user.untouched">  
+                Username is required 
+            </small>
+
+        </div>
+    
+        <div class = "form-group">
+            <label>
+                Password
+            </label>
+
+            <input type = "password" #passw = "ngModel" class = "form-control" [class.is-invalid] = "passw.invalid && passw.touched" placeholder ="Enter Password" name ="pass" [(ngModel)] = "login.currentUser.password" required> <!--"loginModel.password"-->
+
+            <small style = "color:#cf1002" [class.d-none] = "passw.valid || passw.untouched">
+                Password is required
+            </small>
+        </div>
+    
+        <button [disabled] = "LoginForm.invalid" class = "btn btn-primary" type = "submit" (click) = "onSubmit()" name ="Login" (click) = "create(login.currentUser)"  [routerLink]="['/adFolder',login.currentUser.username]"> <!---"onSubmit()"--> <!--(click)="setDataCom(login.currentUser.username)"`-->
+            Login 
+        </button> 
+        <br> 
+        <a href = '' style="color:white;font-size:10px;"> 
+            Clear Values
+        </a>
+        </form>
+    </div>
+</body>
+    
