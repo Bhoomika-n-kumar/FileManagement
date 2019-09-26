@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<body class = "body">
 <div class="navbar">
     <p  style = "margin-top:10px;font-size:16px;color:white;"> 
       Welcome, {{uname}} ! <!--getUser-->
@@ -33,14 +33,14 @@
 <br><br><br>
 
 <div *ngIf = "yes">
-<app-ad-file ></app-ad-file>
+  <app-ad-file (yes1)="yes=$event"></app-ad-file>  
 </div>
 
 
 <!----<div id = "yes" ></div>-->
 <div id = "div1" *ngFor = "let t1 of allFolder">
   <!--<div id = "div1" *ngFor = "let t1 of allFolder">--> 
-  <button id = "name" routerLink = '/filUpload' id = "arrayBtn" (click) = "setFolder(t1)" (click) = "setIdnumber(t1.id)" class = "route1" onmouseover="this.style.color='#3434eb';" onmouseout="this.style.color='black';" style = "outline:none; border:none; cursor: pointer; margin-top:20px; margin-left:20px; height :30px ;  width:90px; background-color:#d1dade;">
+  <button id = "name" [routerLink] = "['/filUpload',t1.name,t1.id]" id = "arrayBtn" (click) = "setFolder(t1)" (click) = "setIdnumber(t1.id)" class = "route1" onmouseover="this.style.color='#3434eb';" onmouseout="this.style.color='black';" style = "outline:none; border:none; cursor: pointer; margin-top:20px; margin-left:20px; height :30px ;  width:90px; background-color:#d1dade;">
       {{t1.name}} 
     </button>  
     <a id = "delete" (click) = "deleteEmployee(t1.id)" ><i class = "fa fa-trash" style = "float:right;"></i></a>
@@ -50,7 +50,7 @@
 <!----</div>-->
   
 <div id = "div2" > 
-  <button class = "folder" id = "fold"  (click) = "display()" name = "button1" class = "btn" style = "outline:none;"> <i class="fa fa-folder"></i>  
+  <button class = "folder" id = "fold"  (click) = "displayForm()" name = "button1" class = "btn" style = "outline:none;"> <i class="fa fa-folder"></i>  
     Add folder 
   </button> <br/><br/> 
 </div> 
@@ -62,5 +62,6 @@
 <p id = "folder" style = "color:#9e9c96;margin-left:20px;margin-top:80px;">No folders created</p>
 
 <!---<app-file-upload [received] = "this.folder" style = "display:none;"></app-file-upload>-->
+</body>
 
 

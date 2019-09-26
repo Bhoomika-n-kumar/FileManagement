@@ -14,6 +14,11 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { FileUploadService } from './file-upload.service';
 import { SharingService } from './sharing.service';
 import { DndDirective } from './dnd.directive';
+import { WorkComponent } from './work/work.component';
+import { Work1Component } from './work1/work1.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -23,13 +28,17 @@ import { DndDirective } from './dnd.directive';
     AdFileComponent,
     FileUploadComponent,
     FileSelectDirective,
-    DndDirective
+    DndDirective,
+    WorkComponent,
+    Work1Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [LoginService, SharingService], 
   bootstrap: [AppComponent]

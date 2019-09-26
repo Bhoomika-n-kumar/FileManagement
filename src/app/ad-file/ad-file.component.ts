@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { create } from 'domain';
+import { Component, OnInit, Output,EventEmitter} from '@angular/core';
 import { Folder } from '../login';
-import { HttpClient } from 'selenium-webdriver/http';
 import { LoginService } from '../login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 //import { FileUploader } from 'ng2-file-upload';
@@ -16,7 +14,7 @@ export class AdFileComponent implements OnInit {
   allFolder: Folder[];
   uname:any;
 
-
+@Output() yes1=new EventEmitter();
 
 constructor( private login: LoginService) { }
 
@@ -25,7 +23,7 @@ ngOnInit() {
  }
            
 get()
-  {
+  { 
     this.login.getFolder().subscribe(
       (data: Folder[]) => {
         this.allFolder = data;
@@ -36,7 +34,8 @@ get()
   close()
   {
     var element = document.getElementById("card1");
-    element.setAttribute('style','display:none;');
+   // element.setAttribute('style','display:none;');
+   this.yes1.emit(false)
   }
   
 create(folder: Folder)

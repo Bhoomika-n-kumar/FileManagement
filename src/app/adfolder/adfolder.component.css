@@ -94,3 +94,10 @@
 .btn1:hover, .btn2:hover, .btn3:hover {
   background-color: #c3cdde;
 }
+
+/*.body
+{
+  background-image: url("https://i1.wp.com/angularscript.com/wp-content/uploads/2018/06/Progressively-Loading-Images-With-Blur-Effect-min.png?ssl=1");
+  background-size: cover;
+  height: 1000px;
+} */

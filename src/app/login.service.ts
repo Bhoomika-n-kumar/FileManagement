@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login, Folder } from './login';
 import { Observable } from 'rxjs';
+import * as uuid from 'uuid';
 
 const headerOption = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,6 +21,7 @@ export class LoginService {
   data : any;
   fold : any;
   id1 : number;
+  pushValue: any = [];
  
   currentUser: Login = {
     id:0,
@@ -67,23 +69,43 @@ export class LoginService {
    console.log(this.id1);
  }
 
- getArrayData(): Observable<any>
+ getIdNumber()
  {
-   let a = this.http.get(this.url + '/' + this.id1);
+   return this.id1;
+ }
+
+ getArrayData(id : number): Observable<any>
+ {
+   let a = this.http.get(this.url + '/' + id);
    console.log(a);
    return a;
  }
 
- patchFiles(a, name)
+ uniqueId = uuid.v4();
+
+ patchFiles(a, name, id : number)
  {
-   a.push(name);
-  //console.log(this.id1);
-  return this.http.patch(this.url + '/' + this.id1 , {Files : a} );
+   //this.pushValue.push(name);
+   a.push({"key": this.uniqueId, "value": /*this.pushValue*/ name});
+   let n = 0;
+   n++;
+   //console.log(this.id1);
+   return this.http.patch(this.url + '/' + id , {Files : a /*{"key" : n, "value" : name}*/ } );
  }
 
- getSpecificData(): Observable<any> 
+ patchDeletedFile(id: number,ar ) 
  {
-   return this.http.get(this.url + '/' + this.id1, headerOption);
+  return this.http.patch(this.url + '/' + id , {Files : ar/*{"key" : n, "value" : name}*/ } );
+ }
+
+ deletePatchedFile(id: number, a)
+ {
+   return this.http.delete(this.url + '/' + id, a )
+ }
+
+ getSpecificData(id : number): Observable<any> 
+ {
+   return this.http.get(this.url + '/' + id, headerOption);
  }
 
  /*setData(data:any)

@@ -45,17 +45,27 @@
   background-color: #d2d3d9;
   padding: 6px;
   font-size: 18px;
-}
+}   
 
-.close, .close1 {
+.close/*, .close1, .save*/ {
   cursor: pointer;
 }
 
+/*.save {
+  margin-right:20px;
+}
 .close1
 {
   margin-left:100px;
+}*/
+
+.close:hover/*, .close1:hover*/ {background: #bbb; }
+
+.filePath
+{
+  margin-left:75px;
+  background-color:#bdcdf0;
+  border-radius: 10px;
+  padding:5px;
+  font-style: italic;
 }
-
-.close:hover, .close1:hover {background: #bbb; }
-
-

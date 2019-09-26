@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <ul class = "nav">
@@ -7,7 +6,9 @@
 <br>
 <!----<p style = "margin-left:20px;">   {{folderName.name}}  </p>-->
 
-
+<label *ngIf = "filePath" class = "filePath">
+    FilePath: {{fName}}{{fileName}}
+</label>
 
 <hr>
 
@@ -58,25 +59,34 @@
         <p id = "change" style = "color:#9e9c96;margin-left:10px;">
             No files uploaded
         </p> 
-
-        <ul class = "dragul1" *ngFor = "let a of array"> <!--array-->
+        <!--displays already posted files-->
+        <ul class = "dragul1" *ngFor = "let a of allFiles;let i = index"> <!--array-->
             <li class = "dragli1">
-                {{a}}{{yes()}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span> 
-                <button (click) = "patchFiles(a)">Clck</button>
-            </li>
-        </ul>
-
-        <ul class = "dragul1" *ngFor = "let a of allFiles"> <!--array-->
-            <li class = "dragli1">
-                {{a}}{{yes()}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span> 
+                {{a.value}}{{yes()}}<a (click) = "showPath(a.value)" style = "cursor:pointer;margin-left:20px;"><i class = "fa fa-list-ul"></i></a><button (click)="fileFiltering(a.key)" style = "outline:none;" class="close">&times;</button> 
                 <!--<button (click) = "patchFiles(a)">Clck</button>-->
             </li>
         </ul>
 
-        <!--<button (click) = "getSpecificData()">Gett</button>-->
+        <!--for displaying dragged files-->
+        <ul class = "dragul1" *ngFor = "let a of array"> <!--array-->
+            <li class = "dragli1" >
+                {{a}}{{yes()}}<a (click)="patchFiles(a)" style = "cursor:pointer;margin-left:20px;" ><i class="fa fa-floppy-o"></i></a><span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
+                <!--<button (click) = "patchFiles(a)">Clck</button>-->
+            </li>
+        </ul>
+   
+        <!--<button (click) = "getSpecificData()">Gett</button>-->  
             
+        <!--displays uploaded files on button click--> 
         <ul class = "ul" *ngFor="let item of attachmentList">   
-            <li class = "li">{{item.originalname}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span></li> 
+            <li class = "li">{{item.originalname}}<span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
+                <!--<button (click) = "patchFiles(item.originalname)">Clck</button>-->
+                <a (click)="patchFiles(item.originalname)" style = "cursor:pointer;margin-left:0px;"><i class="fa fa-floppy-o"></i></a>
+            </li> 
         </ul>
 
+        
+
 </div>
+
+
